@@ -2,9 +2,11 @@ package bam;
 
 public class Enseignant extends utilisateur{
 	String Matière;
-public Enseignant (String Matière,int id,String Nom,String Prenom,String Email,String Mdp) {
-	super(id,Nom,Prenom,Email,Mdp);
+public Enseignant (String Matière,String Nom,String Prenom,String Email,String Mdp) {
+	super(Nom,Prenom,Email,Mdp);
 	this.Matière=Matière;
 }
-
+public void addCours(Etudiant Etudiant,Cours Cours) {
+	Etudiant.EdtEtudiant.CoursList.add(Cours);
+}
 }

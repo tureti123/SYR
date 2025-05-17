@@ -8,5 +8,7 @@ public class Edt {
 public Edt (utilisateur utilisateur) {
 	this.Utilisateur=utilisateur;
 }
-
+public ArrayList<Cours> getCoursList(){
+	return CoursList;
+}
 }

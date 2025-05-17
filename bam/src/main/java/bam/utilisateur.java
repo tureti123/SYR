@@ -11,7 +11,7 @@ public class utilisateur {
 	String Mdp;
 	String Email;
 
-public utilisateur(int id,String Nom,String Prenom,String Email,String Mdp) {
+public utilisateur(String Nom,String Prenom,String Email,String Mdp) {
 	Random r = new Random();
 	int x = r.nextInt(10000);
 	this.id=x;
