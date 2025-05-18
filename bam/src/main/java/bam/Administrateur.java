@@ -69,8 +69,17 @@ Systeme.out.println(equipemnt);
 }
 }
 
-public void VoirDispSalle(Salle salle){
-Systeme.out.println(salle.disp);
+public void VoirDispSalle(Salle salle,Horaire horaire){
+boolean verif =true
+for(Cours c : EnsembleCours){
+for(Horaire h: CoursList){
+if(horaire.Heuredebut.isAfter(h.Heuredebut) || horaire.Heurefin.isAfter(h.Heurefin)){
+verif=false;
+Systeme.out.println("la salle n est pas disponible ");
+break
+}
+}
+}
 }
 
 }
