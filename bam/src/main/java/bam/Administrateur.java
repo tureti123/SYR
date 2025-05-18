@@ -63,6 +63,7 @@ Courslist.remove(c);
 }
 }
 }
+
 public void voirequipement(Salle salle){
 for (String equipement :salle.Equipemnts){
 Systeme.out.println(equipemnt);
