@@ -7,19 +7,20 @@ import java.util.Random;
 import java.time.LocalDateTime;  // pour date + heure (ex : 2025-05-17T14:30)
 
 public class Horaire {
-
+int id;
 String Jour;
 LocalDateTime HeureDebut;
 LocalDateTime HeureFin;
 
 public Horaire(String Jour,LocalDateTime HeureDebut,LocalDateTime HeureFin) {
 	Random r = new Random();
+	int x =r.nextInt(10000);
+	this.id=x;
 	this.HeureDebut=HeureDebut;
 	this.HeureFin=HeureFin;
 	int j =r.nextInt(7);
 	String[] semane = {"Lundi", "Mardi", "Mercredi","Jeudi","Vendredi","Samedi","Dimanche"};
-	ArrayList<String> semaine=new ArrayList<>(Arrays.asList(semane));
-	this.Jour=semaine.get(j);
+	this.Jour=semane[j];
 	
 };
 }

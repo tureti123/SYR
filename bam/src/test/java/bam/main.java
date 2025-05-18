@@ -8,7 +8,7 @@ public class main {
 		  ArrayList<Edt> Emploi_du_temps=new ArrayList();
 		  Etudiant christian=new Etudiant("AB","christian","daniel","atrace","123");
 		  Edt Edt0=new Edt(christian);
-		  Cours terrorisme=new Cours(911,"terrorisme","trop cool");
+		  Cours terrorisme=new Cours("terrorisme","trop cool");
 		  LocalDateTime heuredebut = LocalDateTime.of(2024, 12, 25, 9, 30);
 		  LocalDateTime heurefin = LocalDateTime.of(2024, 12, 25, 9, 30);
 		  System.out.println(heuredebut);  // 2024-12-25T09:30
@@ -17,7 +17,7 @@ public class main {
 		  
 		  AB.add(christian);
 		  Enseignant dicateur=new Enseignant("terrorisme","oussama","ben laden","2tours@gmail.com","911");
-		  dicateur.addCours(christian,terrorisme);
+		  
 		  christian.voirEdt();
 		  
 	  }

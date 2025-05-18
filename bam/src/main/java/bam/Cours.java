@@ -9,8 +9,9 @@ int Id;
 String Nom;
 String Type;
 Salle sdc;
+Enseignant enseignant;
 ArrayList<Horaire> LH;
-public Cours(int Id,String Nom,String Type) {
+public Cours(String Nom,String Type) {
 	Random r = new Random();
 	int x = r.nextInt(10000);
 	int l = r.nextInt(10);

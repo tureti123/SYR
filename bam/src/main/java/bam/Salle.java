@@ -1,11 +1,14 @@
 package bam;
 
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Salle {
 	int Id;
 	String Nom;
 	int Capacité;
+	boolean disp=true;
+	ArrayList<String> Equipements = new ArrayList<>();
 	public Salle(String Nom,int Capacité) {
 		Random r = new Random();
 		int x = r.nextInt(10000);
