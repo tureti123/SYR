@@ -10,6 +10,11 @@ public Etudiant (String Groupe,String Nom,String Prenom,String Email,String Mdp)
 }
 Edt EdtEtudiant=new Edt(this);
 public void voirEdt() {
-	System.out.println(EdtEtudiant.getCoursList().get(0).Nom);
+for(Cours c : EdtEtudiant.Courslist){
+	System.out.println(c.Nom);
+	System.out.println(c.Matiere);
+
+}
+
 }
 }
