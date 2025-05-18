@@ -6,6 +6,7 @@ public class main {
 		  ArrayList<Etudiant> AB=new ArrayList();
 		  ArrayList<Enseignant> CE=new ArrayList();
 		  ArrayList<Edt> Emploi_du_temps=new ArrayList();
+    ArrayList<Salle> EnsembleSalle=new ArrayList();
 		  Etudiant christian=new Etudiant("AB","christian","daniel","atrace","123");
 		  Edt Edt0=new Edt(christian);
 		  Cours terrorisme=new Cours("terrorisme","trop cool");
