@@ -13,7 +13,8 @@ public void voirEdt() {
 for(Cours c : EdtEtudiant.Courslist){
 	System.out.println(c.Nom);
 	System.out.println(c.Matiere);
-
+	System.out.println(c.Enseignant);
+	System.out.println(c.h);
 }
 
 }
