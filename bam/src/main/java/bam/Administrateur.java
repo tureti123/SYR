@@ -53,5 +53,15 @@ public void setsalleNom(Salle salle,String modif) {
 public void setsalleCapacité(Salle salle,int modif) {
 	salle.Capacité=modif;
 }
+public void addEdtCours(Edt edt,Cours cours){
+edt.Courslist.add(cours);
+}
+public void delEdtCours(Edt edt,Cours cours){
+for(Cours c : edt.Courslist){
+if(c.id==cours.id){
+Courslist.remove(c);
+}
+}
+}
 
 }
