@@ -1,6 +1,9 @@
 package bam;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Iterator;
 
 public class Administrateur extends utilisateur{
 	
@@ -53,34 +56,54 @@ public void setsalleNom(Salle salle,String modif) {
 public void setsalleCapacité(Salle salle,int modif) {
 	salle.Capacité=modif;
 }
-public void addEdtCours(Edt edt,Cours cours){
-edt.Courslist.add(cours);
-}
-public void delEdtCours(Edt edt,Cours cours){
-for(Cours c : edt.Courslist){
-if(c.id==cours.id){
-Courslist.remove(c);
-}
-}
+public void addEdtCours(Edt edt,Cours cours,Salle salle,Horaire horaire){
+	Set<Object> ensemble = new HashSet<>();
+	ensemble.add(cours);
+	ensemble.add(salle);
+	ensemble.add(horaire);
+	edt.emploidutemps.add(ensemble);
+	
 }
 
-public void voirequipement(Salle salle){
-for (String equipement :salle.Equipemnts){
-Systeme.out.println(equipemnt);
+
+public void delEdtCours(Edt edt, Cours cours) {
+    for (Set<Object> s : edt.emploidutemps) {
+        Iterator<Object> it = s.iterator();
+        while (it.hasNext()) {
+            Object obj = it.next();
+            if (obj instanceof Cours) {
+                Cours c = (Cours) obj;
+                if (c.Id == cours.Id) {
+                    it.remove(); // suppression sans crash
+                }
+            }
+        }
+    }
 }
+/*
+public void delEdt() {
+	
+}
+*/
+	
+public void voirequipement(Salle salle){
+	for (String equipement :salle.Equipements){
+		System.out.println(equipement);
+	}
 }
 
 public void VoirDispSalle(Salle salle,Horaire horaire){
-boolean verif =true
-for(Cours c : EnsembleCours){
-for(Horaire h: CoursList){
-if(horaire.Heuredebut.isAfter(h.Heuredebut) || horaire.Heurefin.isAfter(h.Heurefin)){
-verif=false;
-Systeme.out.println("la salle n est pas disponible ");
-break
+	boolean verif =true;
+	for(Cours c : main.EnsembleCours){
+		for(Horaire h: c.LH){
+			if((horaire.HeureDebut.isAfter(h.HeureDebut) || horaire.HeureFin.isAfter(h.HeureFin))&& c.sdc.Id==salle.Id ){
+				verif=false;
+				System.out.println("la salle n est pas disponible ");
+				break;
+			}
+		}
+	}
 }
-}
-}
-}
+
 
 }
