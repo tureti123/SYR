@@ -7,6 +7,7 @@ public class Salle {
 	int Id;
 	String Nom;
 	int Capacité;
+	String localistaion;
 	boolean disp=true;
 	ArrayList<String> Equipements = new ArrayList<>();
 	public Salle(String Nom,int Capacité) {

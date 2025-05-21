@@ -7,6 +7,7 @@ public class main {
 		  public static ArrayList<Enseignant> CE=new ArrayList();
 		  public static ArrayList<Edt> Emploi_du_temps=new ArrayList();
 		  public static ArrayList<Salle> EnsembleSalle=new ArrayList();
+		  
 	  public static void main(String[] args) {
 
 		 
@@ -16,13 +17,13 @@ public class main {
 		  LocalDateTime heuredebut = LocalDateTime.of(2024, 12, 25, 9, 30);
 		  LocalDateTime heurefin = LocalDateTime.of(2024, 12, 25, 9, 30);
 		  System.out.println(heuredebut);  // 2024-12-25T09:30
-		  Horaire h=new Horaire("heuredebut.getDayOfWeek()",heuredebut,heurefin);
-		  terrorisme.LH.add(h);
+		  Horaire horaire=new Horaire("heuredebut.getDayOfWeek()",heuredebut,heurefin);
+		  terrorisme.h=(horaire);
 		  
 		  AB.add(christian);
 		  Enseignant dicateur=new Enseignant("terrorisme","oussama","ben laden","2tours@gmail.com","911");
 		  
-		  christian.voirEdt();
+		  christian.EdtEtudiant.voirEdtEtudiant();
 		  
 	  }
 }

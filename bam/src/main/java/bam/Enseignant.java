@@ -6,9 +6,9 @@ public Enseignant (String Matière,String Nom,String Prenom,String Email,String 
 	super(Nom,Prenom,Email,Mdp);
 	this.Matière=Matière;
 }
-Edt EdtEtudiant=new Edt(this);
-public void voirEdt() {
-	System.out.println(EdtEtudiant.getCoursList().get(0).Nom);
+Edt EdtEnseignant=new Edt(this);
+public void voirEdt(){
+	EdtEnseignant.voirEdtEnseignant();
 }
 
 }

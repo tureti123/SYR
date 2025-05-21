@@ -13,7 +13,8 @@ String Nom;
 String Type;
 Salle sdc;
 Enseignant enseignant;
-ArrayList<Horaire> LH;
+Horaire h;
+ArrayList<Etudiant> LE;
 HashMap<Horaire,Salle> hs = new HashMap<>();
 
 public Cours(String Nom,String Type) {
