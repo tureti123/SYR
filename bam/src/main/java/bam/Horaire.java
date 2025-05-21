@@ -19,9 +19,7 @@ public Horaire(String Jour,LocalDateTime HeureDebut,LocalDateTime HeureFin) {
 	this.id=x;
 	this.HeureDebut=HeureDebut;
 	this.HeureFin=HeureFin;
-	int j =r.nextInt(7);
-	String[] semane = {"Lundi", "Mardi", "Mercredi","Jeudi","Vendredi","Samedi","Dimanche"};
-	this.Jour=semane[j];
+	this.Jour=Jour;
 	
 };
 @Override
