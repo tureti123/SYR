@@ -2,23 +2,18 @@ package bam;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+
 import java.io.IOException;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Iterator;
+
+
 
 
 
@@ -49,10 +44,8 @@ public class Controller {
     private TextField cd_name, cd_code,field_type;
     @FXML
     private ChoiceBox<String> credit, teachr, typee, semestr, prereq;
-
     
     @FXML private Spinner<Integer> heuredebut,heurefin,minutedebut,minutefin;
-    @FXML
     private DatePicker date_debut,date_defin;
 
     // === Pour users.fxml ===
@@ -77,11 +70,6 @@ public class Controller {
         System.out.println("Suppression du cours sélectionné...");
         // TODO: supprimer le cours sélectionné dans la TableView
     }
-    @FXML
-    private void dash() {
-        System.out.println("Dashboard (gestioncours.fxml)");
-    }
-
 
     @FXML
     private void cd_addcourse() {
@@ -97,27 +85,71 @@ public class Controller {
         // TODO: créer un nouvel objet Cours et l’ajouter à la liste
     }
     @FXML
-    private void directCours(ActionEvent event) throws IOException {
-    	
-    	    Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/gestioncours.fxml"));
-    	    Scene homeScene = new Scene(homePage);
+    public void directCours(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/gestioncours.fxml"));
+            Parent root = loader.load();
 
-    	    // Obtenir la fenêtre (stage) à partir de l'événement
-    	    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-    	    window.setScene(homeScene);
-    	    window.show();
-    	}
+            // Récupérer la scène actuelle depuis l'élément déclencheur
+            Scene scene = ((Node) mouseEvent.getSource()).getScene();
+            Stage stage = (Stage) scene.getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
-    private void directdisplayCours(ActionEvent event) throws IOException {
-    	
-    	    Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/displaycourse.fxml"));
-    	    Scene homeScene = new Scene(homePage);
+    public void homei(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/board.fxml"));
+            Parent root = loader.load();
 
-    	    // Obtenir la fenêtre (stage) à partir de l'événement
-    	    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-    	    window.setScene(homeScene);
-    	    window.show();
-    	}
+            Scene scene = ((Node) mouseEvent.getSource()).getScene();
+            Stage stage = (Stage) scene.getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void duser(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/displayuser.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = ((Node) mouseEvent.getSource()).getScene();
+            Stage stage = (Stage) scene.getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    public void dcourse(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/displaycourse.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = ((Node) mouseEvent.getSource()).getScene();
+            Stage stage = (Stage) scene.getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
 
     @FXML
     private void fd_register() {
@@ -136,11 +168,25 @@ public class Controller {
         System.out.println("Déconnexion...");
         // TODO: Retourner à l’écran de login
     }
-    
-    
+    @FXML
+    private void goToRegister(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/register.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
     // === Navigation ===
-
+    @FXML
+    private void dash() { System.out.println("Dashboard"); }
     @FXML
     private void homei() { System.out.println("Home"); }
     @FXML
@@ -153,4 +199,6 @@ public class Controller {
     private void duser() { System.out.println("Delete User"); }
     @FXML
     private void setting() { System.out.println("Settings"); }
+
+
 }
