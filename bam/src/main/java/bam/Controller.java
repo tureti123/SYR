@@ -4,6 +4,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import java.io.IOException;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+
+
 
 public class Controller {
 
@@ -29,9 +41,40 @@ public class Controller {
 
     // === Pour courses.fxml ===
     @FXML
-    private TextField cd_name, cd_code;
+    private TextField cd_name, cd_code,field_type;
     @FXML
     private ChoiceBox<String> credit, teachr, typee, semestr, prereq;
+    
+    @FXML private Spinner<Integer> heuredebut,heurefin,minutedebut,minutefin;
+
+    @FXML
+    private void initialize() {
+        System.out.println("heuredebut == null ? " + (heuredebut == null));
+        System.out.println("heurefin == null ? " + (heurefin == null));
+
+        if (heuredebut != null) {
+            SpinnerValueFactory<Integer> valueFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 8);
+            heuredebut.setValueFactory(valueFactory);
+        } 
+        if (minutedebut != null) {
+            SpinnerValueFactory<Integer> valueFactory =
+                    new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 1);
+                minutedebut.setValueFactory(valueFactory);
+            }
+
+
+        if (heurefin != null) {
+            SpinnerValueFactory<Integer> endFactory =
+                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 1);
+            heurefin.setValueFactory(endFactory);
+        }
+        if (minutefin != null) {
+            SpinnerValueFactory<Integer> valueFactory =
+                    new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 8);
+                minutefin.setValueFactory(valueFactory);
+            }
+    }
 
     // === Pour users.fxml ===
     @FXML
@@ -62,13 +105,24 @@ public class Controller {
         String code = cd_code.getText();
         String credits = credit.getValue();
         String teacher = teachr.getValue();
-        String type = typee.getValue();
+        String type = field_type.getText();
         String semester = semestr.getValue();
         String prereqVal = prereq.getValue();
 
         System.out.println("Ajout cours: " + name + ", Code: " + code);
         // TODO: créer un nouvel objet Cours et l’ajouter à la liste
     }
+    @FXML
+    private void directCours(ActionEvent event) throws IOException {
+    	
+    	    Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/gestioncours.fxml"));
+    	    Scene homeScene = new Scene(homePage);
+
+    	    // Obtenir la fenêtre (stage) à partir de l'événement
+    	    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	    window.setScene(homeScene);
+    	    window.show();
+    	}
 
     @FXML
     private void fd_register() {
