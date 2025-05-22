@@ -145,6 +145,21 @@ public class Controller {
             e.printStackTrace();
         }
     }
+    @FXML
+    public void dash(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = ((Node) mouseEvent.getSource()).getScene();
+            Stage stage = (Stage) scene.getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
