@@ -11,14 +11,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="1020.0" style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bam.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="1020.0" style="-fx-background-color: #D3D3D3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bam.Controller">
    <children>
-      <VBox layoutY="-2.0" prefHeight="580.0" prefWidth="80.0" style="-fx-background-color: #452153;">
+      <VBox layoutY="-2.0" prefHeight="580.0" prefWidth="80.0" style="-fx-background-color: #2D2D37;">
          <children>
             <HBox alignment="CENTER" onMouseClicked="#dash" prefHeight="95.0" prefWidth="80.0" style="-fx-background-color: #EDEDED;">
                <children>
                   <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" smooth="false">
-                     <image/>
+                     <image>
+                        <Image url="@/icons/user.png"/>
+                     </image>
+
                      <cursor>
                         <Cursor fx:constant="HAND"/>
                      </cursor>
@@ -31,7 +34,12 @@
             <HBox alignment="CENTER" onMouseClicked="#homei" prefHeight="60.0" prefWidth="80.0" style="-fx-background-color: #2D2D37;">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image/>
+                     <image>
+                        <Image url="@/icons/home.png"/>
+                     </image>
+                     <effect>
+                        <ColorAdjust brightness="0.5"/>
+                     </effect>
                      <cursor>
                         <Cursor fx:constant="HAND"/>
                      </cursor>
@@ -44,9 +52,11 @@
             <HBox alignment="CENTER" onMousePressed="#users" prefHeight="60.0" prefWidth="80.0" style="-fx-background-color: #2D2D37;">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="25.0" onMousePressed="#users" pickOnBounds="true" preserveRatio="true">
-                     <image/>
+                     <image>
+                        <Image url="@/icons/users.png"/>
+                     </image>
                      <effect>
-                        <ColorAdjust brightness="1.0" contrast="1.0" hue="0.21" saturation="1.0"/>
+                        <ColorAdjust brightness="0.5"/>
                      </effect>
                      <cursor>
                         <Cursor fx:constant="HAND"/>
@@ -60,9 +70,11 @@
             <HBox alignment="CENTER" onMouseClicked="#Courses" prefHeight="60.0" prefWidth="80.0" style="-fx-background-color: #2D2D37;">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="25.0" onMousePressed="#Courses" pickOnBounds="true" preserveRatio="true">
-                     <image/>
+                     <image>
+                        <Image url="@/icons/delete_course.png"/>
+                     </image>
                      <effect>
-                        <ColorAdjust brightness="1.0"/>
+                        <ColorAdjust brightness="0.5"/>
                      </effect>
                      <cursor>
                         <Cursor fx:constant="HAND"/>
@@ -76,9 +88,11 @@
             <HBox alignment="CENTER" onMouseClicked="#dcourse" prefHeight="60.0" prefWidth="80.0" style="-fx-background-color: #2D2D37;">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="25.0" onMousePressed="#dcourse" pickOnBounds="true" preserveRatio="true">
-                     <image/>
+                     <image>
+                        <Image url="@/icons/delete_course.png"/>
+                     </image>
                      <effect>
-                        <ColorAdjust brightness="1.0"/>
+                        <ColorAdjust brightness="0.5"/>
                      </effect>
                      <cursor>
                         <Cursor fx:constant="HAND"/>
@@ -92,9 +106,11 @@
             <HBox alignment="CENTER" onMouseClicked="#duser" prefHeight="60.0" prefWidth="80.0" style="-fx-background-color: #2D2D37;">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="25.0" onMousePressed="#Courses" pickOnBounds="true" preserveRatio="true">
-                     <image/>
+                     <image>
+                        <Image url="@/icons/delete_user.png"/>
+                     </image>
                      <effect>
-                        <ColorAdjust brightness="1.0"/>
+                        <ColorAdjust brightness="0.5"/>
                      </effect>
                      <cursor>
                         <Cursor fx:constant="HAND"/>
@@ -108,9 +124,11 @@
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="80.0" style="-fx-background-color: #2D2D37;">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#setting" onMousePressed="#Courses" pickOnBounds="true" preserveRatio="true">
-                     <image/>
+                     <image>
+                        <Image url="@/icons/settings.png"/>
+                     </image>
                      <effect>
-                        <ColorAdjust brightness="1.0"/>
+                        <ColorAdjust brightness="0.5"/>
                      </effect>
                      <cursor>
                         <Cursor fx:constant="HAND"/>
@@ -125,7 +143,9 @@
             <HBox alignment="CENTER" onMousePressed="#logout" prefHeight="95.0" prefWidth="80.0" style="-fx-background-color: #EDEDED;">
                <children>
                   <ImageView fitHeight="33.0" fitWidth="33.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
-                     <image/>
+                     <image>
+                        <Image url="@/icons/logout.png"/>
+                     </image>
                      <cursor>
                         <Cursor fx:constant="HAND"/>
                      </cursor>
