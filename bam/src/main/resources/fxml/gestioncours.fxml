@@ -14,9 +14,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.SpinnerValueFactory?>
+<?import javafx.scene.control.DatePicker?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="1020.0" style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bam.Controller">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="1020.0" style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bam.GestioncoursController">
     <children>
         <ImageView fitHeight="90.0" fitWidth="300.0" layoutX="400.0" layoutY="35.0"/>
         <VBox layoutY="-2.0" prefHeight="580.0" prefWidth="80.0" style="-fx-background-color: #2D2D37;">
@@ -164,6 +166,7 @@
         </Label>
         <Spinner fx:id="heuredebut" layoutX="519.0" layoutY="209.0" prefHeight="30.0" prefWidth="100.0" />
          <Spinner fx:id="minutedebut" layoutX="619.0" layoutY="209.0" prefHeight="30.0" prefWidth="100.0" />
+          <DatePicker fx:id="date_debut" layoutX="719.0" layoutY="209.0" prefHeight="30.0" prefWidth="100.0" />
         <Label layoutX="363.0" layoutY="259.0" prefHeight="30.0" prefWidth="139.0" text="Heure de fin de cours" textFill="#2d2d37">
             <font>
                 <Font name="System Bold" size="18.0" />
@@ -171,6 +174,7 @@
         </Label>
            <Spinner fx:id="heurefin" layoutX="519.0" layoutY="259.0" prefHeight="30.0" prefWidth="100.0" />
              <Spinner fx:id="minutefin" layoutX="619.0" layoutY="259.0" prefHeight="30.0" prefWidth="100.0" />
+             <DatePicker fx:id="date_fin" layoutX="719.0" layoutY="259.0" prefHeight="30.0" prefWidth="100.0" />
         <Label layoutX="363.0" layoutY="309.0" prefHeight="30.0" prefWidth="161.0" text="Instructor Name:" textFill="#2d2d37">
             <font>
                 <Font name="System Bold" size="18.0" />
@@ -184,12 +188,12 @@
             </font>
         </Label>
          <TextField fx:id="field_type" layoutX="519.0" layoutY="359.0" prefHeight="30.0" prefWidth="180.0" />
-        <Label layoutX="363.0" layoutY="409.0" prefHeight="30.0" prefWidth="139.0" text="Semester:" textFill="#2d2d37">
+        <Label layoutX="363.0" layoutY="409.0" prefHeight="30.0" prefWidth="139.0" text="Salle" textFill="#2d2d37">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>
         </Label>
-        <ChoiceBox fx:id="semestr" layoutX="519.0" layoutY="409.0" prefHeight="30.0" prefWidth="180.0" />
+        <ChoiceBox fx:id="salle" layoutX="519.0" layoutY="409.0" prefHeight="30.0" prefWidth="180.0" />
         <Label layoutX="363.0" layoutY="459.0" prefHeight="30.0" prefWidth="139.0" text="Pre Req:" textFill="#2d2d37">
             <font>
                 <Font name="System Bold" size="18.0" />
