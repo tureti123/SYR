@@ -31,17 +31,30 @@ package bam;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
-public class main {
+public class main extends Application{
     public static ArrayList<Cours> EnsembleCours = new ArrayList<>();
     public static ArrayList<Etudiant> AB = new ArrayList<>();
     public static ArrayList<Enseignant> CE = new ArrayList<>();
     public static ArrayList<Edt> Emploi_du_temps = new ArrayList<>();
     public static ArrayList<Salle> EnsembleSalle = new ArrayList<>();
+	public static Administrateur admin;
 
     public static void main(String[] args) {
         // Création administrateur
-        Administrateur admin = new Administrateur("Admin", "Super", "admin@mail.com", "admin123");
+
+
+         admin = new Administrateur("Admin", "Super", "admin@mail.com", "admin123");
 
         // Création d'une salle
         Salle s1 = new Salle("Salle101", 30);
@@ -97,5 +110,19 @@ public class main {
         System.out.println("\n----- Test de disponibilité de la salle -----");
         boolean dispo = admin.VoirDispSalle(s1, testConflit);
         System.out.println("Salle dispo ? " + dispo);
+
+
+        launch(args);
+        
+	   
     }
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/board.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Exemple FXML");
+        stage.show();
+    }
+    
 }

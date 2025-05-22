@@ -4,6 +4,23 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import java.io.IOException;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Iterator;
+
+
 
 public class Controller {
 
@@ -29,9 +46,14 @@ public class Controller {
 
     // === Pour courses.fxml ===
     @FXML
-    private TextField cd_name, cd_code;
+    private TextField cd_name, cd_code,field_type;
     @FXML
     private ChoiceBox<String> credit, teachr, typee, semestr, prereq;
+
+    
+    @FXML private Spinner<Integer> heuredebut,heurefin,minutedebut,minutefin;
+    @FXML
+    private DatePicker date_debut,date_defin;
 
     // === Pour users.fxml ===
     @FXML
@@ -55,6 +77,11 @@ public class Controller {
         System.out.println("Suppression du cours sélectionné...");
         // TODO: supprimer le cours sélectionné dans la TableView
     }
+    @FXML
+    private void dash() {
+        System.out.println("Dashboard (gestioncours.fxml)");
+    }
+
 
     @FXML
     private void cd_addcourse() {
@@ -62,13 +89,24 @@ public class Controller {
         String code = cd_code.getText();
         String credits = credit.getValue();
         String teacher = teachr.getValue();
-        String type = typee.getValue();
+        String type = field_type.getText();
         String semester = semestr.getValue();
         String prereqVal = prereq.getValue();
 
         System.out.println("Ajout cours: " + name + ", Code: " + code);
         // TODO: créer un nouvel objet Cours et l’ajouter à la liste
     }
+    @FXML
+    private void directCours(ActionEvent event) throws IOException {
+    	
+    	    Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/gestioncours.fxml"));
+    	    Scene homeScene = new Scene(homePage);
+
+    	    // Obtenir la fenêtre (stage) à partir de l'événement
+    	    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	    window.setScene(homeScene);
+    	    window.show();
+    	}
 
     @FXML
     private void fd_register() {
@@ -87,10 +125,11 @@ public class Controller {
         System.out.println("Déconnexion...");
         // TODO: Retourner à l’écran de login
     }
+    
+    
 
     // === Navigation ===
-    @FXML
-    private void dash() { System.out.println("Dashboard"); }
+
     @FXML
     private void homei() { System.out.println("Home"); }
     @FXML
