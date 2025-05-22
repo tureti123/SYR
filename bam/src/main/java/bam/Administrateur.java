@@ -56,7 +56,8 @@ public void creercours(String Nom,String Type) {
 		}
 	}
 }*/
-public void creercours(String Nom, String Type) {
+public Cours creercours(String Nom, String Type) {
+	Cours cours=null;
     boolean existe = false;
     for (Cours c : main.EnsembleCours) {
         if (c.Nom.equals(Nom)) {
@@ -65,10 +66,13 @@ public void creercours(String Nom, String Type) {
         }
     }
     if (!existe) {
+    	cours=new Cours(Nom, Type);
         main.EnsembleCours.add(new Cours(Nom, Type));
     } else {
         System.out.println("change de nom de cours");
+       
     }
+    return cours;
 }
 
 
@@ -170,8 +174,10 @@ public void setEquipement (Salle salle,String equipement) {
 	}
 }
 
-public void creerhoraire(String jour,LocalDateTime modifdebut,LocalDateTime modiffin) {
-	Horaire creerhoraire=new Horaire(jour,modifdebut,modiffin);
+public Horaire creerhoraire(String jour,LocalDateTime modifdebut,LocalDateTime modiffin) {
+	 Horaire creerhoraire=new Horaire(jour,modifdebut,modiffin);
+
+	 return creerhoraire;
 }
 
 public void creersalle(String Nom,int Capacité) {

@@ -14,6 +14,11 @@ import javafx.scene.Node;
 import java.io.IOException;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Iterator;
 
 
 
@@ -44,37 +49,11 @@ public class Controller {
     private TextField cd_name, cd_code,field_type;
     @FXML
     private ChoiceBox<String> credit, teachr, typee, semestr, prereq;
+
     
     @FXML private Spinner<Integer> heuredebut,heurefin,minutedebut,minutefin;
-
     @FXML
-    private void initialize() {
-        System.out.println("heuredebut == null ? " + (heuredebut == null));
-        System.out.println("heurefin == null ? " + (heurefin == null));
-
-        if (heuredebut != null) {
-            SpinnerValueFactory<Integer> valueFactory =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 8);
-            heuredebut.setValueFactory(valueFactory);
-        } 
-        if (minutedebut != null) {
-            SpinnerValueFactory<Integer> valueFactory =
-                    new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 1);
-                minutedebut.setValueFactory(valueFactory);
-            }
-
-
-        if (heurefin != null) {
-            SpinnerValueFactory<Integer> endFactory =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59, 1);
-            heurefin.setValueFactory(endFactory);
-        }
-        if (minutefin != null) {
-            SpinnerValueFactory<Integer> valueFactory =
-                    new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23, 8);
-                minutefin.setValueFactory(valueFactory);
-            }
-    }
+    private DatePicker date_debut,date_defin;
 
     // === Pour users.fxml ===
     @FXML
@@ -98,6 +77,11 @@ public class Controller {
         System.out.println("Suppression du cours sélectionné...");
         // TODO: supprimer le cours sélectionné dans la TableView
     }
+    @FXML
+    private void dash() {
+        System.out.println("Dashboard (gestioncours.fxml)");
+    }
+
 
     @FXML
     private void cd_addcourse() {
@@ -116,6 +100,17 @@ public class Controller {
     private void directCours(ActionEvent event) throws IOException {
     	
     	    Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/gestioncours.fxml"));
+    	    Scene homeScene = new Scene(homePage);
+
+    	    // Obtenir la fenêtre (stage) à partir de l'événement
+    	    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+    	    window.setScene(homeScene);
+    	    window.show();
+    	}
+    @FXML
+    private void directdisplayCours(ActionEvent event) throws IOException {
+    	
+    	    Parent homePage = FXMLLoader.load(getClass().getResource("/fxml/displaycourse.fxml"));
     	    Scene homeScene = new Scene(homePage);
 
     	    // Obtenir la fenêtre (stage) à partir de l'événement
@@ -145,8 +140,7 @@ public class Controller {
     
 
     // === Navigation ===
-    @FXML
-    private void dash() { System.out.println("Dashboard"); }
+
     @FXML
     private void homei() { System.out.println("Home"); }
     @FXML
